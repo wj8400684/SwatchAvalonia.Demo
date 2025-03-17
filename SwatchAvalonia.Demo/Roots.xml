@@ -1,0 +1,3 @@
+﻿<linker>
+	<assembly fullname="SwatchAvalonia.Demo" preserve="All" />
+</linker>
