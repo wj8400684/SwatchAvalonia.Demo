@@ -12,7 +12,7 @@
         <Setter Property="Width" Value="{DynamicResource NavigationBackButtonWidth}" />
     </Style>
     <Style Selector="ui|NavigationView.SampleAppNav[IsBackButtonVisible=False] SplitView /template/ ContentPresenter#PART_PanePresenter">
-        <Setter Property="Margin" Value="0 40 0 0" />
+        <Setter Property="Margin" Value="0 0 0 0" />
     </Style>
 
     <Style Selector="ui|NavigationViewItem.SampleAppNav uip|NavigationViewItemPresenter">
