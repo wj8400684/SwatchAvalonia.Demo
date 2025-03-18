@@ -3,6 +3,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:SwatchAvalonia.Demo.ViewModels"
+             xmlns:u="https://irihi.tech/ursa"
              xmlns:ui="clr-namespace:SwatchAvalonia.Navigation.Controls;assembly=SwatchAvalonia.Navigation"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="SwatchAvalonia.Demo.Views.MainView"
@@ -13,11 +14,22 @@
         <vm:MainViewModel />
     </Design.DataContext>
 
-    <ui:NavigationView AlwaysShowHeader="False"
-                       PaneDisplayMode="Left"
-                       Name="NavView"
-                       IsSettingsVisible="False"
-                       IsBackEnabled="{Binding #FrameView.CanGoBack}">
-        <ui:Frame Name="FrameView" PointerPressed="InputElement_OnPointerPressed" />
-    </ui:NavigationView>
+    <Grid RowDefinitions="Auto,*">
+        <u:Marquee Height="40"
+                   HorizontalAlignment="Center"
+                   Content="欢迎来到人类不正常研究中心请打开地址看看吧: https://cn.pornhub.com/"
+                   FontSize="15">
+
+        </u:Marquee>
+        <ui:NavigationView Grid.Row="1"
+                           AlwaysShowHeader="False"
+                           PaneDisplayMode="Left"
+                           Name="NavView"
+                           IsSettingsVisible="False"
+                           IsBackEnabled="{Binding #FrameView.CanGoBack}">
+            <ui:Frame Name="FrameView" />
+        </ui:NavigationView>
+    </Grid>
 </UserControl>
+
+<!-- PointerPressed="InputElement_OnPointerPressed" -->
