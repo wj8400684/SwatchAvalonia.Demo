@@ -2,59 +2,149 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:u="https://irihi.tech/ursa"
+             xmlns:avalonia="https://codewf.com"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="SwatchAvalonia.Demo.Views.HomeView">
-    <WrapPanel Margin="0,30,0,0">
-        <WrapPanel.Styles>
-                <Style Selector="Button">
-                        <Setter Property="Padding" Value="20,10"/>
-                        <Setter Property="Margin" Value="10"/>
-                </Style>
-        </WrapPanel.Styles>
-        <Button Content="button"
-                Classes="Primary"
-                Theme="{DynamicResource BorderlessButton}" />
-        <Button Content="button"
-                Classes="Secondary"
-                Theme="{DynamicResource BorderlessButton}" />
-        <Button Content="button"
-                Classes="Tertiary"
-                Theme="{DynamicResource BorderlessButton}" />
-        <Button Content="button"
-                Classes="Success"
-                Theme="{DynamicResource BorderlessButton}" />
-        <Button Content="button"
-                Classes="Warning"
-                Theme="{DynamicResource BorderlessButton}" />
-        <Button Content="button"
-                Classes="Primary"
-                Theme="{DynamicResource BorderlessButton}" />
-        <Button Content="button"
-                Classes="Tertiary"
-                Theme="{DynamicResource SolidButton}" />
-        <Button Content="button"
-                Classes="Success"
-                Theme="{DynamicResource SolidButton}" />
-        <Button Content="button"
-                Classes="Warning"
-                Theme="{DynamicResource SolidButton}" />
-        <Button Content="button"
-                Classes="Tertiary"
-                Theme="{DynamicResource SolidButton}" />
-        <Button Content="button"
-                Classes="Success"
-                Theme="{DynamicResource SolidButton}" />
-        <Button Content="button"
-                Classes="Warning"
-                Theme="{DynamicResource SolidButton}" />
-        <Button Content="button"
-                Classes="Tertiary"
-                Theme="{DynamicResource SolidButton}" />
-        <Button Content="button"
-                Classes="Success"
-                Theme="{DynamicResource SolidButton}" />
-        <Button Content="button"
-                Classes="Warning"
-                Theme="{DynamicResource SolidButton}" />
-    </WrapPanel>
+    <Grid RowDefinitions="Auto,Auto,*"
+          Margin="2,0">
+        <HeaderedContentControl 
+            Header="控制台"
+            Height="90"
+            Margin="0,2,0,0"
+            Theme="{DynamicResource GroupBoxSmall}">
+
+            <!-- 控制台 -->
+            <UniformGrid Columns="3">
+                <UniformGrid.Styles>
+                    <Style Selector="Button">
+                        <Setter Property="Width" Value="100" />
+                        <Setter Property="Height" Value="35" />
+                    </Style>
+                </UniformGrid.Styles>
+                <Button Content="开始" />
+                <Button Content="暂停" />
+                <Button Content="停止" />
+            </UniformGrid>
+        </HeaderedContentControl>
+
+        <!-- 设置信息 -->
+        <UniformGrid Grid.Row="1"
+                     Columns="3"
+                     Margin="0,2,0,0">
+            <HeaderedContentControl Header="直播间设置"
+                                    Margin="0,0,5,0"
+                                    ToolTip.Placement="Bottom"
+                                    ToolTip.Tip="设置采集主播性别和在线人数"
+                                    Theme="{DynamicResource GroupBoxSmall}">
+
+                <Grid RowDefinitions="25,*"
+                      HorizontalAlignment="Center">
+                    <StackPanel Spacing="30"
+                                Orientation="Horizontal">
+                        <RadioButton
+                            Classes="Small"
+                            Content="男" />
+                        <RadioButton
+                            Classes="Small"
+                            Content="女" />
+                        <RadioButton
+                            Classes="Small"
+                            Content="随机"
+                            IsChecked="True" />
+                    </StackPanel>
+                    <StackPanel Grid.Row="1"
+                                Spacing="5"
+                                Orientation="Horizontal">
+                        <TextBlock Text="人数"
+                                   VerticalAlignment="Center" />
+                        <u:NumericIntUpDown Name="WatchMin"
+                                            Width="70"
+                                            Height="30"
+                                            Minimum="1"
+                                            Maximum="{Binding Value,  ElementName=WatchMax}"
+                                            HorizontalContentAlignment="Center" />
+                        <TextBlock Text="-"
+                                   VerticalAlignment="Center" />
+                        <u:NumericIntUpDown Name="WatchMax"
+                                            Width="70"
+                                            Height="30"
+                                            Minimum="{Binding Value,  ElementName=WatchMin}"
+                                            Maximum="100"
+                                            HorizontalContentAlignment="Center" />
+                    </StackPanel>
+                </Grid>
+            </HeaderedContentControl>
+
+            <HeaderedContentControl Header="用户设置"
+                                    Margin="0,0,5,0"
+                                    Theme="{DynamicResource GroupBoxSmall}"
+                                    ToolTip.Placement="Bottom"
+                                    ToolTip.Tip="设置采集直播间观众的性别和每个直播间采集的观众数">
+                <Grid RowDefinitions="25,*"
+                      HorizontalAlignment="Center">
+                    <StackPanel Spacing="30"
+                                Orientation="Horizontal">
+                        <RadioButton
+                            Classes="Small"
+                            IsChecked="True"
+                            Content="男"
+                            CommandParameter="f" />
+                        <RadioButton
+                            Classes="Small"
+                            Content="女"
+                            CommandParameter="m" />
+                        <RadioButton
+                            Classes="Small"
+                            Content="随机"
+                            CommandParameter="r" />
+                    </StackPanel>
+                    <StackPanel Grid.Row="1"
+                                Spacing="30"
+                                Orientation="Horizontal">
+                        <TextBlock Text="采集数量"
+                                   VerticalAlignment="Center" />
+                        <u:NumericIntUpDown Width="130"
+                                            HorizontalContentAlignment="Center" />
+                    </StackPanel>
+                </Grid>
+
+            </HeaderedContentControl>
+
+            <HeaderedContentControl Header="作品设置"
+                                    Padding="10"
+                                    Theme="{DynamicResource GroupBoxSmall}"
+                                    ToolTip.Placement="Bottom"
+                                    ToolTip.Tip="设置单个观众获取作品的数量">
+                <StackPanel Spacing="10"
+                            Orientation="Horizontal">
+                    <TextBlock Text="采集数量"
+                               VerticalAlignment="Center" />
+                    <u:NumericIntUpDown Width="130"
+                                        Height="30"
+                                        HorizontalContentAlignment="Center" />
+                </StackPanel>
+            </HeaderedContentControl>
+        </UniformGrid>
+
+        <!-- 详情列表 -->
+        <HeaderedContentControl Grid.Row="2"
+                                Margin="0,2,0,0"
+                                Theme="{DynamicResource GroupBox}">
+            <HeaderedContentControl.Header>
+                <Grid ColumnDefinitions="*,Auto,Auto">
+                    <TextBlock Text="状态："
+                               FontWeight="{DynamicResource HeaderedContentControlHeaderFontWeight}" />
+                    <TextBlock Grid.Column="1"
+                               Text="运行时间"
+                               Width="60"
+                               FontWeight="{DynamicResource HeaderedContentControlHeaderFontWeight}" />
+                    <TextBlock Grid.Column="2"
+                               Text="1时2分50秒"
+                               FontWeight="{DynamicResource HeaderedContentControlHeaderFontWeight}" />
+                </Grid>
+            </HeaderedContentControl.Header>
+            <avalonia:LogView FontSize="15" />
+        </HeaderedContentControl>
+    </Grid>
 </UserControl>

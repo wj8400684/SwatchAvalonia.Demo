@@ -1,0 +1,17 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- 这个集合了所有的资源 -->
+    <Styles.Resources>
+        <ResourceDictionary>
+            <!-- <ResourceDictionary.ThemeDictionaries> -->
+            <!--     <MergeResourceInclude x:Key="Default" Source="/Themes/Light/Index.axaml" /> -->
+            <!--     <MergeResourceInclude x:Key="Dark" Source="/Themes/Dark/Index.axaml" /> -->
+            <!-- </ResourceDictionary.ThemeDictionaries> -->
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceInclude Source="/Controls/Themes/Index.axaml" />
+                <!-- <ResourceInclude Source="/Themes/Shared/Index.axaml" /> -->
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Styles.Resources>
+    <!-- <StyleInclude Source="/Themes/Styles/Index.axaml"/> -->
+</Styles>

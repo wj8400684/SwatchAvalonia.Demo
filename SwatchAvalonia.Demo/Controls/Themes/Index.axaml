@@ -1,0 +1,11 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- Add Resources Here -->
+    <ResourceDictionary.MergedDictionaries>
+        <!-- <ResourceInclude Source="Popup.axaml" /> -->
+        <!-- <ResourceInclude Source="MenuFlyoutPresenter.axaml" /> -->
+        <ResourceInclude Source="NavMenu.axaml" />
+        <ResourceInclude Source="HeaderedContentControl.axaml" />
+        <ResourceInclude Source="ToggleSwitch.axaml"/>
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

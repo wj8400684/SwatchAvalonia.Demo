@@ -19,5 +19,6 @@
 		<u-semi:SemiTheme Locale="zh-CN" />
         <StyleInclude Source="avares://SwatchAvalonia.Demo/Styles/NavigationViewStyle.axaml" />
         <StyleInclude Source="avares://SwatchAvalonia.Navigation/Index.axaml" />
+        <StyleInclude Source="avares://SwatchAvalonia.Demo/Controls/Index.axaml" />
     </Application.Styles>
 </Application>

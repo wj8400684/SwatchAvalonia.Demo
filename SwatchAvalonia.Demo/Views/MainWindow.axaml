@@ -9,6 +9,7 @@
         x:Class="SwatchAvalonia.Demo.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
         Title="SwatchAvalonia.Demo"
-			  >
+        Width="1028"
+        Height="578">
         <views:MainView />
 </u:UrsaWindow>

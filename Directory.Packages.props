@@ -11,6 +11,7 @@
     <PackageVersion Include="Avalonia.Fonts.Inter" Version="11.2.5" />
     <PackageVersion Include="Avalonia.Diagnostics" Version="11.2.5" />
     <PackageVersion Include="Avalonia.Desktop" Version="11.2.5" />
+    <PackageVersion Include="CodeWF.LogViewer.Avalonia" Version="1.0.7" />
     <PackageVersion Include="CommunityToolkit.Mvvm" Version="8.3.2" />
     <PackageVersion Include="Irihi.Ursa.Themes.Semi" Version="1.9.0" />
     <PackageVersion Include="PublishAotCompressed" Version="1.0.3" />

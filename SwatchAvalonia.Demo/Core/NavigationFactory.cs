@@ -24,14 +24,14 @@ public sealed class NavigationFactory(MainViewModel owner) : INavigationPageFact
                 DataContext = target
             };
         }
-        else if (target is SettingViewModel)
+        else if (target is PlayViewModel)
         {
             return new PlayView()
             {
                 DataContext = target
             };
         }
-        else if (target is PlayViewModel)
+        else if (target is SettingViewModel)
         {
             return new SettingPage()
             {
